@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.8.7",
+    "prettier": "3.0.3",
     "typescript": "^5.2.2",
     "typescript-eslint-language-service": "^5.0.5"
   }
