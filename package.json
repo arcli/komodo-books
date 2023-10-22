@@ -1,13 +1,10 @@
 {
   "name": "komodo-books",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.1.0",
+  "description": "Simple KOMODO Books monorepo",
+  "scripts": {},
   "keywords": [],
-  "author": "",
+  "author": "Seth Ladygo <seth@arclight.industries>",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.8.7",
