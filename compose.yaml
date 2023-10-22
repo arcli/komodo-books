@@ -1,9 +1,23 @@
 version: "3.8"
 
 services:
+  frontend:
+    build:
+      context: .
+      target: frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: development
+    depends_on:
+      backend:
+        condition: service_started
+
   backend:
     build:
-      context: ./
+      context: .
       target: backend
     ports:
       - 8000:8000

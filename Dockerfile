@@ -9,7 +9,10 @@ WORKDIR /app
 
 FROM base AS backend
 WORKDIR /app/backend
-
 EXPOSE 8000
-
 CMD [ "pnpm", "-F", "backend", "dev" ]
+
+FROM base AS frontend
+WORKDIR /app/frontend
+EXPOSE 3000
+CMD [ "pnpm", "-F", "frontend", "dev" ]
