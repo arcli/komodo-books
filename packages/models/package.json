@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pnpm -F models exec tsc",
+    "build": "pnpm -F models exec tsc"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
