@@ -12,5 +12,8 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "typescript-eslint-language-service": "^5.0.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.4.2"
   }
 }

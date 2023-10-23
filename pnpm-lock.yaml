@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@prisma/client':
+        specifier: ^5.4.2
+        version: 5.4.2
     devDependencies:
       '@types/node':
         specifier: ^20.8.7
@@ -26,9 +30,6 @@ importers:
 
   backend:
     dependencies:
-      '@prisma/client':
-        specifier: ^5.4.2
-        version: 5.4.2(prisma@5.4.2)
       '@types/express':
         specifier: ^4.17.20
         version: 4.17.20
@@ -100,9 +101,6 @@ importers:
 
   packages/models:
     dependencies:
-      '@prisma/client':
-        specifier: ^5.4.2
-        version: 5.4.2(prisma@5.4.2)
       prisma-class-generator:
         specifier: ^0.2.8
         version: 0.2.8(prisma@5.4.2)
@@ -459,7 +457,7 @@ packages:
       prisma: 5.4.2
     dev: false
 
-  /@prisma/client@5.4.2(prisma@5.4.2):
+  /@prisma/client@5.4.2:
     resolution: {integrity: sha512-2xsPaz4EaMKj1WS9iW6MlPhmbqtBsXAOeVttSePp8vTFTtvzh2hZbDgswwBdSCgPzmmwF+tLB259QzggvCmJqA==}
     engines: {node: '>=16.13'}
     requiresBuild: true
@@ -470,7 +468,6 @@ packages:
         optional: true
     dependencies:
       '@prisma/engines-version': 5.4.1-2.ac9d7041ed77bcc8a8dbd2ab6616b39013829574
-      prisma: 5.4.2
     dev: false
 
   /@prisma/debug@4.16.2:
