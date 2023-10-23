@@ -20,8 +20,7 @@ generator prismaClassGenerator {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:9u35sM3@localhost:5432/postgres"
-  // url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 model User {

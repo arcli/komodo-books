@@ -1,7 +1,11 @@
 .git
 .gitignore
-node_modules
+.dockerignore
 *.md
 dist
 Dockerfile
 .env
+compose.yaml
+db_*.txt
+.emacs*
+.prettierrc
