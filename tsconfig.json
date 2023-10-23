@@ -9,6 +9,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "resolveJsonModule": true,
     "module": "nodenext",
     "outDir": "./dist"
   }

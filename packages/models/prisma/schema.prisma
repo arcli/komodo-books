@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+  //   output   = "./generated/prisma-client-js"
+  //   // binaryTargets = ["native"]
+  //   binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+generator prismaClassGenerator {
+  provider   = "prisma-class-generator"
+  // output = "./pcg"
+  output     = "../classes"
+  useSwagger = false
+  // separateRelationFields = true
+  // clientImportPath =  set prisma client import path manually, default value is @prisma/client
+  // useNonNullableAssertions
+  // Apply a ! after non-optional class fields to avoid strict mode warnings (Property has no initializer and is not definitely assigned in the constructor.)
+  // preserveDefaultNullable = true
+  dryRun     = false
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:9u35sM3@localhost:5432/postgres"
+  // url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  name  String
+  lists List[]
+}
+
+/// A book
+model Book {
+  id            Int     @id @unique
+  title         String
+  isbn          String
+  language      String?
+  pages         Int
+  ratingAverage Decimal
+  ratingCount   Int
+  reviewCount   Int
+  imageUrl      String
+  lists         List[]
+}
+
+/// A curated list of a user's books
+model List {
+  id     Int    @id @default(autoincrement())
+  name   String
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int
+  books  Book[]
+}

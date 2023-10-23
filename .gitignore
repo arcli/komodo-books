@@ -1,2 +1,5 @@
+.env
 node_modules/
 dist/
+packages/models/classes/
+packages/models/prisma/generated/
