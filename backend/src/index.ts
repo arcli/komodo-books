@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
 
 const prisma = new PrismaClient();
 const app = express();
@@ -15,6 +16,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static("static"));
+app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
   res.send("Hello");
