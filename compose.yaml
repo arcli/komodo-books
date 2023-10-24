@@ -26,6 +26,7 @@ services:
     environment:
       NODE_ENV: development
       DATABASE_URL: ${DATABASE_URL}
+      DEBUG: "*"
     depends_on:
       postgres:
         condition: service_healthy
