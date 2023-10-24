@@ -14,6 +14,7 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(express.static("static"));
 
 app.get("/", (req, res) => {
   res.send("Hello");
