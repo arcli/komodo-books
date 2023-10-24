@@ -1,75 +1,33 @@
 <template>
-  <v-container class="fill-height">
-    <v-responsive class="align-center text-center fill-height">
-      <v-img height="300" src="@/assets/logo.svg" />
-
-      <div class="text-body-2 font-weight-light mb-n1">Welcommen to</div>
-
-      <h1 class="text-h2 font-weight-bold">Vuetiy</h1>
-
-      <div class="py-14" />
-
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn
-            href="https://vuetifyjs.com/components/all/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
-
-            Components
-          </v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
-          >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
-
-            Get Started
-          </v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn
-            href="https://community.vuetifyjs.com/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
-
-            Community
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-responsive>
-  </v-container>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <h1>Made By Getters</h1>
+    <div v-for="book in getBooks" :key="book.id">
+      {{ book.id }} {{ book.title }}
+    </div>
+    <h1>Made By Actions</h1>
+    <div v-for="book in books" :key="book.id">
+      {{ book.id }} {{ book.title }}
+    </div>
+  </div>
 </template>
 
-<script setup lang="ts">
-  //
+<script setup>
+import { ref, onMounted, computed } from "vue";
+import { useBookStore } from "../store/books";
+
+const store = useBookStore();
+const msg = ref("Welcome to my Vuex Store");
+
+const getBooks = computed(() => {
+  return store.getBooks;
+});
+
+const books = computed(() => {
+  return store.books;
+});
+
+onMounted(() => {
+  store.fetchBooks();
+});
 </script>
