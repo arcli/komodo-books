@@ -12,6 +12,7 @@
     "prisma": "^5.4.2"
   },
   "dependencies": {
+    "@prisma/client": "5.4.2",
     "prisma-class-generator": "^0.2.8"
   }
 }

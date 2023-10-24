@@ -5,6 +5,8 @@ COPY . /app
 WORKDIR /app
 # needed for prisma
 RUN apt-get update -y && apt-get install -y openssl
+RUN pnpm install
+RUN pnpm -F models prisma generate
 
 FROM base AS backend
 # WORKDIR /app/backend
@@ -21,4 +23,4 @@ CMD [ "pnpm", "-F", "frontend", "dev" ]
 FROM base AS models
 # WORKDIR /app/packages/models
 # ensure the db is up to date. wouldn't do it this way in prod.
-CMD [ "pnpm", "-F", "models", "exec", "prisma", "db", "push" ]
+CMD [ "pnpm", "-F", "models", "exec", "prisma", "db", "push", "--skip-generate" ]
