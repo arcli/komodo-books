@@ -8,14 +8,14 @@
 
     <v-row>
       <v-col cols="12">
-        <BookList :books="books" />
+        <BookList :books="books" showAddToList @popAddToList="addToList" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, computed } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useBookStore } from "../store/books";
 import BookList from "@/components/BookList.vue";
 
@@ -28,4 +28,8 @@ const books = computed(() => {
 onMounted(() => {
   store.fetchBooks();
 });
+
+function addToList(bookId) {
+  console.log(`ADD ${bookId} TO LIST`);
+}
 </script>
