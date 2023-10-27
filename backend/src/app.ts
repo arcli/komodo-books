@@ -4,12 +4,12 @@ import cors from "cors";
 import morgan from "morgan";
 
 const prisma = new PrismaClient();
-const app = express();
+export const app = express();
 
 var corsOptions = {
     origin: true, // allow all for dev/demo purpose
     // for prod, could do something like:
-    // origin: [process.env.CORS_ALLOWED_URL, "http://localhost:3000"],
+    // origin: [process.env.API_BASE_URL, "http://localhost:3000"],
 };
 
 app.use(cors(corsOptions));
@@ -44,4 +44,3 @@ app.get("/lists/all", async (req, res) => {
     res.json(books);
 });
 
-module.exports = app;
