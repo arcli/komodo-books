@@ -44,3 +44,40 @@ app.get("/lists/all", async (req, res) => {
     res.json(books);
 });
 
+// add to a list, existing or new
+app.post("/lists/addto", async (req, res) => {
+    const userId = HARDCODED_SESSION_USER_ID; // req.body.userId;
+    const bookId = req.body.bookId;
+    const listName: string = req.body.listName;
+
+    const listId = {
+        name: listName,
+        userId: userId,
+    };
+
+    const upsertList = await prisma.list.upsert({
+        where: {
+            name_userId: listId,
+        },
+        update: {
+            books: {
+                connect: {
+                    id: bookId,
+                },
+            },
+        },
+        create: {
+            ...listId,
+            books: {
+                connect: {
+                    id: bookId,
+                },
+            },
+        },
+        include: {
+            books: true,
+        },
+    });
+
+    res.json(upsertList);
+});

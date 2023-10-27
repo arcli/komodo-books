@@ -22,9 +22,26 @@ export const useListStore = defineStore("lists", {
                 console.log(error);
             }
         },
+
         async addBookToList(bookId, listName) {
-            // if we succeed, get info from response and add to the store
-            console.log(`ADD ${bookId} TO LIST NAMED ${listName}`);
+            const postData = {
+                bookId: bookId,
+                listName: listName,
+            };
+
+            try {
+                const { status, data } = await axios.post(
+                    `${import.meta.env.VITE_API_BASE_URL}/lists/addto`,
+                    postData,
+                );
+                if (status === 200) {
+                    // console.log("UPDATE LIST HERE");
+                } else {
+                    console.log(`Unexpected status: ${status}`);
+                }
+            } catch (error) {
+                console.log(error);
+            }
         },
     },
 });

@@ -1,21 +1,10 @@
-generator client {
+generator models {
   provider = "prisma-client-js"
-  //   output   = "./generated/prisma-client-js"
-  //   // binaryTargets = ["native"]
-  //   binaryTargets = ["native", "debian-openssl-1.1.x"]
 }
 
-generator prismaClassGenerator {
-  provider   = "prisma-class-generator"
-  // output = "./pcg"
-  output     = "../classes"
-  useSwagger = false
-  // separateRelationFields = true
-  // clientImportPath =  set prisma client import path manually, default value is @prisma/client
-  // useNonNullableAssertions
-  // Apply a ! after non-optional class fields to avoid strict mode warnings (Property has no initializer and is not definitely assigned in the constructor.)
-  // preserveDefaultNullable = true
-  dryRun     = false
+generator backend {
+  provider = "prisma-client-js"
+  output   = "../../../backend/node_modules/.prisma/client"
 }
 
 datasource db {
@@ -50,4 +39,5 @@ model List {
   user   User   @relation(fields: [userId], references: [id])
   userId Int
   books  Book[]
+  @@unique([name, userId])
 }
