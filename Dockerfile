@@ -4,9 +4,9 @@ RUN corepack enable
 COPY . /app
 WORKDIR /app
 # needed for prisma
-RUN apt-get update -y && apt-get install -y openssl
+RUN apt-get update -y && apt-get -y upgrade && apt-get install -y openssl
 RUN pnpm install
-RUN pnpm -F models prisma generate
+RUN pnpm -F models exec prisma generate
 
 FROM base AS backend
 # WORKDIR /app/backend
