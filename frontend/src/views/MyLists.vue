@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pl-0">
+  <v-container>
     <v-row>
       <v-col cols="12">
         <h1>My Lists</h1>
@@ -11,8 +11,8 @@
       :key="list.id"
     >
       <v-col cols="12">
-        <h3>{{list.name}}</h3>
-        <BookList :books="list.books" />
+        <h2>{{list.name}}</h2>
+        <BookList :books="list.books" horizontal />
       </v-col>
     </v-row>
   </v-container>

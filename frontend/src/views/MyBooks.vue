@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pl-0">
+  <v-container>
     <v-row>
       <v-col cols="12">
         <h1>My Books</h1>
@@ -47,7 +47,7 @@ onMounted(() => {
   listStore.fetchLists();
 });
 
-const addToListVisible = ref(true);
+const addToListVisible = ref(false);
 
 function popAddToList(id, name) {
   addToListVisible.value = true;
@@ -55,8 +55,8 @@ function popAddToList(id, name) {
   bookName.value = name;
 }
 
-function addBookToList(value) {
+function addBookToList(listName) {
   addToListVisible.value = false;
-  console.log(`ADD TO LIST ${value}`);
+  console.log(`ADD ${bookId.value} TO LIST NAMED ${listName}`);
 }
 </script>
