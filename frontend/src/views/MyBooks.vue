@@ -8,28 +8,55 @@
 
     <v-row>
       <v-col cols="12">
-        <BookList :books="books" showAddToList @popAddToList="addToList" />
+        <BookList :books="books" showAddToList @popAddToList="popAddToList" />
       </v-col>
     </v-row>
   </v-container>
+  <AddToListDialog
+    v-model="addToListVisible"
+    :listNames="listNames"
+    :bookName="bookName"
+    @addToListDone="addBookToList"
+  />
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, computed } from "vue";
 import { useBookStore } from "../store/books";
-import BookList from "@/components/BookList.vue";
+import { useListStore } from "../store/lists";
 
-const store = useBookStore();
+import BookList from "@/components/BookList.vue";
+import AddToListDialog from "@/components/AddToListDialog.vue";
+
+const bookId = ref(0);
+const bookName = ref("");
+
+const bookStore = useBookStore();
+const listStore = useListStore();
+
+const listNames = computed(() => {
+  return listStore.lists.map((l) => l.name);
+});
 
 const books = computed(() => {
-  return store.books;
+  return bookStore.books;
 });
 
 onMounted(() => {
-  store.fetchBooks();
+  bookStore.fetchBooks();
+  listStore.fetchLists();
 });
 
-function addToList(bookId) {
-  console.log(`ADD ${bookId} TO LIST`);
+const addToListVisible = ref(true);
+
+function popAddToList(id, name) {
+  addToListVisible.value = true;
+  bookId.value = id;
+  bookName.value = name;
+}
+
+function addBookToList(value) {
+  addToListVisible.value = false;
+  console.log(`ADD TO LIST ${value}`);
 }
 </script>

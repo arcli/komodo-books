@@ -1,10 +1,10 @@
 <template>
-  <v-sheet class="d-flex flex-wrap bg-surface-variant">
+  <v-sheet class="d-flex flex-wrap pb-4">
     <template v-for="book in books">
       <BookCard
         :book="book"
         :showAddToList="showAddToList"
-        @popAddToList="(id) => $emit('popAddToList', id)"/>
+        @popAddToList="(...args) => $emit('popAddToList', ...args)"/>
     </template>
   </v-sheet>
 </template>

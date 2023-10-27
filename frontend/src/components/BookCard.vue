@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="ml-4 mt-4"
-    width="250"
+    width="200"
     color="#eee"
   >
     <v-avatar
@@ -47,7 +47,7 @@
           class="ms-2"
           variant="outlined"
           size="small"
-          @click="$emit('popAddToList', book.id)"
+          @click="$emit('popAddToList', book.id, book.title)"
         >
           Add To List
         </v-btn>
