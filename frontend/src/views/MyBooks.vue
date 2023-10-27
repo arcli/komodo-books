@@ -55,8 +55,8 @@ function popAddToList(id, name) {
   bookName.value = name;
 }
 
-function addBookToList(listName) {
+async function addBookToList(listName) {
   addToListVisible.value = false;
-  console.log(`ADD ${bookId.value} TO LIST NAMED ${listName}`);
+  await listStore.addBookToList(bookId.value, listName);
 }
 </script>
