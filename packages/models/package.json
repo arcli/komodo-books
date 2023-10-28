@@ -9,6 +9,7 @@
     "seed": "ts-node prisma/seed.ts"
   },
   "devDependencies": {
+    "@types/node": "^20.8.9",
     "prisma": "^5.5.0"
   },
   "dependencies": {
