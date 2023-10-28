@@ -1,4 +1,4 @@
-# KOMODO Books excercise app
+# KOMODO Books exercise app
 
 ## Demo
 
@@ -11,7 +11,7 @@ A live demo is available at http://komodo.arclight.industries/
 ## Rationale
 
 The goal was to use the technologies KOMODO is using, where that was
-known and practical. To that extent, the excercise uses:
+known and practical. To that extent, the exercise uses:
 
 - Node.js
 - TypeScript
