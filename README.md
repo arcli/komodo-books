@@ -70,6 +70,10 @@ cp .env{.sample,}
 docker compose up
 ```
 
+#### Play
+
+Browse [http://localhost:3000](http://localhost:3000/)
+
 ## Out of scope
 
 Concerns intentionally left out, generally to simplify.
