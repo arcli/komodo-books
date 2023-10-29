@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "resolveJsonModule": true,
+    "module": "nodenext",
+    "outDir": "./dist"
+  }
+}

@@ -7,8 +7,9 @@ services:
       target: frontend
     ports:
       - 3000:3000
-    volumes:
-      - .:/app
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
     environment:
       NODE_ENV: development
       VITE_API_BASE_URL: ${VITE_API_BASE_URL}
@@ -22,8 +23,8 @@ services:
       target: backend
     ports:
       - 8000:8000
-    volumes:
-      - .:/app
+    # volumes:
+    #   - .:/app
     environment:
       NODE_ENV: development
       DATABASE_URL: ${DATABASE_URL}
@@ -37,10 +38,10 @@ services:
 
   models:
     build:
-      context: .
-      target: models
+      context: packages/models
     volumes:
-      - .:/app
+      - .:/app/packages/models
+      - /app/node_modules
     environment:
       NODE_ENV: development
       DATABASE_URL: ${DATABASE_URL}
