@@ -40,16 +40,19 @@ const create = async (type: any, items: any) => {
 
 const createLists = async () => {
   listData.forEach(async (data, index) => {
-    const id = index + 1;
+    const listId = {
+        name: data.name,
+        userId: data.userId,
+    };
+
     await prisma.list.upsert({
       where: {
-        id: id,
-      },
-      update: {
-        ...data,
+        name_userId: listId,
       },
       create: {
-        id: id,
+        ...data
+      },
+      update: {
         ...data,
       },
     });
